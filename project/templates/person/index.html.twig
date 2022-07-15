@@ -1,2 +1,15 @@
-{# templates/person/index.html.twig #}
-{{ form(form) }}
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact Form{% endblock %}
+
+{% block body %}
+<div class="container">
+           <div class="d-flex justify-content-center">
+               <h2 class=page-header>Contact Form</h2>
+                   {{form_start(form)}}
+                   {{form_widget(form)}}
+                   {{form_end(form)}}
+           </div>
+</div>
+
+{% endblock %}
