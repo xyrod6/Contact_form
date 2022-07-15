@@ -20,6 +20,9 @@ class PersonController extends AbstractController
 		$form->handleRequest($request);
 		if($form->isSubmitted() && $form->isValid()){
 		  $person = $form->getData();
+		  //$manager = $this->getDoctrine()->getManager();      
+          //$manager -> persist($person);
+          //$manager -> flush();
 		  return $this->redirectToRoute('task_success');
 		}
         return $this->render('person/index.html.twig', [
