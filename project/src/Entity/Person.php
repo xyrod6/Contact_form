@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\PersonRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -13,17 +14,23 @@ class Person
     #[ORM\Column()]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-	#@Assert\NotBlank(message="Hiba! Kérjük töltsd ki az összes mezőt!")
+	/**
+    * [ORM\Column(length: 255)]
+	*@Assert\NotBlank(message="Hiba! Kérjük töltsd ki az összes mezőt!")
+	*/
     private ?string $name = null;
 
-    #[ORM\Column(length: 255)]
-	#@Assert\Email
-	#@Assert\NotBlank(message="Hiba! Kérjük töltsd ki az összes mezőt!")
+	/**
+    * [ORM\Column(length: 255)]
+	*@Assert\NotBlank(message="Hiba! Kérjük töltsd ki az összes mezőt!")
+	*@Assert\Email
+	*/
     private ?string $email = null;
 
-    #[ORM\Column(length: 255)]
-	#@Assert\NotBlank(message="Hiba! Kérjük töltsd ki az összes mezőt!")
+	/**
+    * [ORM\Column(length: 255)]
+	*@Assert\NotBlank(message="Hiba! Kérjük töltsd ki az összes mezőt!")
+	*/
     private ?string $message = null;
 
     public function getId(): ?int
