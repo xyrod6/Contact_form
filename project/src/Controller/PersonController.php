@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Person;
+use App\Form\PersonType;
 
 class PersonController extends AbstractController
 {
@@ -14,10 +15,10 @@ class PersonController extends AbstractController
     {
 		$person = new Person();
 		
-		$form = $this->createForm(PersonType::class, $task);
+		$form = $this->createForm(PersonType::class, $person);
 		
         return $this->render('person/index.html.twig', [
-            'form' => 'PersonController',
+            'form' => $form->createView(),
         ]);
     }
 }
