@@ -14,13 +14,8 @@ class PersonController extends AbstractController
     {
 		$person = new Person();
 		
-		$form = $this->createFormBuilder($person)
-            ->add('name', TextType::class)
-            ->add('email', DateType::class)
-			->add('message', TextType::class)
-            ->add('submit', SubmitType::class, ['label' => 'Contact form'])
-            ->getForm();
-			
+		$form = $this->createForm(PersonType::class, $task);
+		
         return $this->render('person/index.html.twig', [
             'form' => 'PersonController',
         ]);
